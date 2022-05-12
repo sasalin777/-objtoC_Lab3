@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "ScoreKeeper.h"
+
 
 NSMutableString *getUserInput(NSString *prompt) {
     
@@ -19,20 +21,22 @@ NSMutableString *getUserInput(NSString *prompt) {
 
 int main(int argc, const char * argv[]) {
     NSLog(@"MATHS!\n");
-Nextquestion:
+    BOOL gameOn = YES;
+//Nextquestion:
     @autoreleasepool {
-        AdditionQuestion *aq = [[AdditionQuestion alloc]init];
-        long ANS = [aq answer];
-
-        NSLog(@"%ld * %ld = ?",aq.value1,aq.value2);
-        NSString *inputString = getUserInput(@"");
-    //create a while loop in main.m to prevent the app from just exiting.
-        NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
-        NSString *trimmedString = [inputString stringByTrimmingCharactersInSet:set]; // remove \n
-        NSString *inputLowercase = [trimmedString lowercaseString];
-        while(([inputString  isEqual: @""]) == false){
+        
+        ScoreKeeper *scores = [ScoreKeeper new];
+        while(gameOn){
+            AdditionQuestion *aq = [AdditionQuestion new];
+            NSLog(@"%@", aq.question);
+            NSString *inputString = getUserInput(@"");
+            NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
+            NSString *trimmedString = [inputString stringByTrimmingCharactersInSet:set]; // remove \n
+            NSString *inputLowercase = [trimmedString lowercaseString];
+            long ANS = 0;
+            ANS = [aq answer];
             if ([inputLowercase isEqual: @"quit"]) {
-            break;
+                gameOn = NO;
         } else {
             //NSLog(@"answers:%ld",ANS);
             NSInteger inputNum = [inputString integerValue];
@@ -40,11 +44,15 @@ Nextquestion:
             
             if ((long)inputNum == (long)ANS) {
                 NSLog(@"Right!");
-                goto Nextquestion;
+                [scores doRight];
+            // goto Nextquestion;
             } else {
                 NSLog(@"Wrong!");
-                goto Nextquestion;
+                [scores doWrong];
+            // goto Nextquestion;
             }
+            [scores score];
+           
             }
         }
     }

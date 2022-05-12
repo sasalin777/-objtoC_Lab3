@@ -10,19 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AdditionQuestion : NSObject
-{
-    long value1;
-    long value2;
-    long answer;
-}
-
-@property(nonatomic,readwrite,assign) long value1;
-@property(nonatomic,readwrite,assign) long value2;
-
-
-- (long ) answer;
-
-
+@property(nonatomic,readwrite) NSString *question;
+@property(nonatomic,readwrite) NSInteger answer;
 
 @end
 

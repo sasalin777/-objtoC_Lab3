@@ -13,15 +13,11 @@
 {
     self = [super init];
     if (self) {
-        _value1 = arc4random_uniform(100);
-        _value2 = arc4random_uniform(100);
+        NSInteger value1 = arc4random_uniform(100);
+        NSInteger value2 = arc4random_uniform(100);
+        _question = [NSString stringWithFormat:@"%ld + %ld = ?", value1, value2];
+        _answer = value1 + value2;
         }
     return self;
 }
-
-- (long) answer
-{
-    return _value1 * _value2;
-}
-
 @end

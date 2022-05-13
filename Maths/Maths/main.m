@@ -8,16 +8,17 @@
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
 #import "ScoreKeeper.h"
+#import "InputHandler.h"
 
 
-NSMutableString *getUserInput(NSString *prompt) {
-    
-    char inputChars[255];
-    NSLog(@"%@", prompt);
-    fgets(inputChars, 255, stdin);
-    return [NSString stringWithUTF8String:inputChars];
-    
-}
+//NSMutableString *getUserInput(NSString *prompt) {
+//    
+//    char inputChars[255];
+//    NSLog(@"%@", prompt);
+//    fgets(inputChars, 255, stdin);
+//    return [NSString stringWithUTF8String:inputChars];
+//    
+//}
 
 int main(int argc, const char * argv[]) {
     NSLog(@"MATHS!\n");
@@ -27,22 +28,19 @@ int main(int argc, const char * argv[]) {
         
         ScoreKeeper *scores = [ScoreKeeper new];
         while(gameOn){
-            AdditionQuestion *aq = [AdditionQuestion new];
+            AdditionQuestion *aq = [AdditionQuestion new]; // generate question
             NSLog(@"%@", aq.question);
-            NSString *inputString = getUserInput(@"");
-            NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
-            NSString *trimmedString = [inputString stringByTrimmingCharactersInSet:set]; // remove \n
-            NSString *inputLowercase = [trimmedString lowercaseString];
-            long ANS = 0;
-            ANS = [aq answer];
+            InputHandler *keyin = [InputHandler new]; // user input the answer
+            NSString *Userkeyin = [keyin getUserInput];
+            NSString *inputLowercase = [Userkeyin lowercaseString]; // for quit (both uppercass and lowercase)
+            NSInteger ANS = [aq answer];
             if ([inputLowercase isEqual: @"quit"]) {
                 gameOn = NO;
         } else {
             //NSLog(@"answers:%ld",ANS);
-            NSInteger inputNum = [inputString integerValue];
-            //long answerL = NSSwapLong(inputNum);
+            NSInteger inputNum = [Userkeyin integerValue];
             
-            if ((long)inputNum == (long)ANS) {
+            if (inputNum == ANS) {
                 NSLog(@"Right!");
                 [scores doRight];
             // goto Nextquestion;

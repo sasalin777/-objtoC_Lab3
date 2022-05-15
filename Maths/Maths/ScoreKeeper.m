@@ -26,6 +26,7 @@
 - (void) doWrong {
     _wrongCounts += 1;
 }
+
 - (void) score {
     CGFloat ave = (long double)_rightCounts/(long double)(_rightCounts + _wrongCounts);
     NSLog(@"score: %ld rights, %ld wrongs --- %.0f%%",_rightCounts,_wrongCounts, ave * 100);

@@ -9,6 +9,7 @@
 #import "AdditionQuestion.h"
 #import "ScoreKeeper.h"
 #import "InputHandler.h"
+#import "QuestionManager.h"
 
 
 //NSMutableString *getUserInput(NSString *prompt) {
@@ -27,6 +28,8 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         ScoreKeeper *scores = [ScoreKeeper new];
+        QuestionManager *myArr = [QuestionManager new];
+        NSMutableArray *timeArr = [myArr questions];
         while(gameOn){
             AdditionQuestion *aq = [AdditionQuestion new]; // generate question
             NSLog(@"%@", aq.question);
@@ -34,12 +37,23 @@ int main(int argc, const char * argv[]) {
             NSString *Userkeyin = [keyin getUserInput];
             NSString *inputLowercase = [Userkeyin lowercaseString]; // for quit (both uppercass and lowercase)
             NSInteger ANS = [aq answer];
+            NSDate *start = [aq startTime];
+            //[timeArr addObject:start];
+            //NSString *index1 = [timeArr objectAtIndex:0];
+            
+            
             if ([inputLowercase isEqual: @"quit"]) {
                 gameOn = NO;
         } else {
             //NSLog(@"answers:%ld",ANS);
             NSInteger inputNum = [Userkeyin integerValue];
-            
+            NSDate *end = [aq endTime];
+            //[timeArr addObject:end];
+            //NSString *index2 = [timeArr objectAtIndex:1];
+            NSTimeInterval userAnswerTime = [aq answerTime];
+            NSNumber *time = [NSNumber numberWithDouble:userAnswerTime];
+            [timeArr addObject:time];
+            NSString *index1 = [timeArr objectAtIndex:0];
             if (inputNum == ANS) {
                 NSLog(@"Right!");
                 [scores doRight];
@@ -50,6 +64,14 @@ int main(int argc, const char * argv[]) {
             // goto Nextquestion;
             }
             [scores score];
+            [myArr timeOutput];
+//            NSLog(@"%@",start);
+//            NSLog(@"test time: %@",index1);
+//            NSLog(@"%@",end);
+            //NSLog(@"%f",userAnswerTime);
+            
+           
+  
            
             }
         }

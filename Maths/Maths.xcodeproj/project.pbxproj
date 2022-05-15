@@ -11,6 +11,7 @@
 		F7878202282CC5A700490C8A /* AdditionQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F7878201282CC5A700490C8A /* AdditionQuestion.m */; };
 		F7878208282D80F600490C8A /* ScoreKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = F7878207282D80F600490C8A /* ScoreKeeper.m */; };
 		F787820B282DD51900490C8A /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F787820A282DD51900490C8A /* InputHandler.m */; };
+		F787820E28316E5C00490C8A /* QuestionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F787820D28316E5C00490C8A /* QuestionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		F7878207282D80F600490C8A /* ScoreKeeper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeper.m; sourceTree = "<group>"; };
 		F7878209282DD51900490C8A /* InputHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
 		F787820A282DD51900490C8A /* InputHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		F787820C28316E5C00490C8A /* QuestionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionManager.h; sourceTree = "<group>"; };
+		F787820D28316E5C00490C8A /* QuestionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				F7878207282D80F600490C8A /* ScoreKeeper.m */,
 				F7878200282CC5A700490C8A /* AdditionQuestion.h */,
 				F7878201282CC5A700490C8A /* AdditionQuestion.m */,
+				F787820C28316E5C00490C8A /* QuestionManager.h */,
+				F787820D28316E5C00490C8A /* QuestionManager.m */,
 			);
 			path = Maths;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F787820E28316E5C00490C8A /* QuestionManager.m in Sources */,
 				F7878208282D80F600490C8A /* ScoreKeeper.m in Sources */,
 				F78781FA282CA8EF00490C8A /* main.m in Sources */,
 				F7878202282CC5A700490C8A /* AdditionQuestion.m in Sources */,

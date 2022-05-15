@@ -6,6 +6,7 @@
 //
 
 #import "AdditionQuestion.h"
+#import "QuestionManager.h"
 
 @implementation AdditionQuestion
 
@@ -17,7 +18,20 @@
         NSInteger value2 = arc4random_uniform(100);
         _question = [NSString stringWithFormat:@"%ld + %ld = ?", value1, value2];
         _answer = value1 + value2;
+        _startTime = [NSDate date];
+       // _endTime = [NSDate date];
         }
     return self;
 }
+
+- (NSInteger)answer {
+ 
+ _endTime = [NSDate date];
+ _answerTime = [_endTime timeIntervalSinceDate:_startTime ];
+   
+  return _answer;
+ }
+
+
+
 @end

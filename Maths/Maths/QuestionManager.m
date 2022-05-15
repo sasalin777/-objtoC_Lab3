@@ -21,8 +21,11 @@
 }
 
 - (void) timeOutput {
-    _sum = [_questions valueForKeyPath:@"@sum.self"];
-    _ave = [_questions valueForKeyPath:@"@avg.self"];
+    _sum = [_questions valueForKeyPath:@"@sum.intValue"];
+    _ave = [_questions valueForKeyPath:@"@avg.intValue"];
+
+//    _sum = [_questions valueForKeyPath:@"@sum.self"];
+//    _ave = [_questions valueForKeyPath:@"@avg.self"];
 
     NSLog(@"total time : %@s average time : %@s",_sum,_ave);
 }

@@ -5,10 +5,10 @@
 //  Created by Li Tzu Lin on 2022-05-11.
 //
 
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "QuestionManager.h"
 
-@implementation AdditionQuestion
+@implementation Question
 
 - (instancetype)init
 {

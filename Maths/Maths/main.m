@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "ScoreKeeper.h"
 #import "InputHandler.h"
 #import "QuestionManager.h"
@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
         QuestionManager *myArr = [QuestionManager new];
         NSMutableArray *timeArr = [myArr questions];
         while(gameOn){
-            AdditionQuestion *aq = [AdditionQuestion new]; // generate question
+            Question *aq = [Question new]; // generate question
             NSLog(@"%@", aq.question);
             InputHandler *keyin = [InputHandler new]; // user input the answer
             NSString *Userkeyin = [keyin getUserInput];

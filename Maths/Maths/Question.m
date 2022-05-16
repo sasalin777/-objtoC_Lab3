@@ -14,10 +14,10 @@
 {
     self = [super init];
     if (self) {
-        NSInteger value1 = arc4random_uniform(100);
-        NSInteger value2 = arc4random_uniform(100);
-        _question = [NSString stringWithFormat:@"%ld + %ld = ?", value1, value2];
-        _answer = value1 + value2;
+        _rightValue = arc4random_uniform(100);
+        _leftValue = arc4random_uniform(100);
+        _question = [NSString stringWithFormat:@"%ld + %ld = ?", _rightValue, _leftValue];
+        _answer = _rightValue + _leftValue;
         _startTime = [NSDate date];
        // _endTime = [NSDate date];
         }
@@ -31,6 +31,10 @@
    
   return _answer;
  }
+
+- (void) generateQuestion {
+    
+}
 
 
 

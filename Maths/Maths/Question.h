@@ -10,11 +10,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Question : NSObject
-@property(nonatomic,readwrite) NSString *question;
+@property(nonatomic,readwrite,copy) NSString *question;
 @property(nonatomic,readwrite) NSInteger answer;
 @property(nonatomic,readonly) NSDate *startTime;
 @property(nonatomic,readonly) NSDate *endTime;
 @property(nonatomic,readwrite) NSTimeInterval answerTime;
+@property(nonatomic,readwrite) NSInteger rightValue;
+@property(nonatomic,readwrite) NSInteger leftValue;
+
+- (void)generateQuestion;
 
 @end
 
